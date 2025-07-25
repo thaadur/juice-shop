@@ -1,0 +1,5 @@
+version: 2
+customFilters:
+  filter: ".runs |= map(if .name == \"Cross-site Scripting\" then . else empty end)"
+  pass: "[.runs[] | select(.name == \"Cross-site Scripting\")] | length"
+  msg: "⚠️ Cross-site Scripting (XSS) vulnerabilities found"
